@@ -57,10 +57,10 @@ const walk = (dir, spaces = '--') => {
 
     stuff.forEach(e => {
       if (fs.lstatSync(path.join(dir, e)).isFile() && path.extname(e) === '.md') {
-        console.log(spaces + '  ' + e)
+        console.log(`${spaces} ${e}`)
         md2html(path.join(dir, e))
       } else if (fs.lstatSync(path.join(dir, e)).isDirectory()) {
-        console.log(spaces + '\\ ' + e + '\\')
+        console.log(`${spaces} ${e}\\`)
         walk(path.join(dir, e), spaces + '--')
       }
     })
