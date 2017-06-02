@@ -46,8 +46,8 @@ const md2html = filename => {
     if (!fs.existsSync(absolutePath)) {
       rmkdir(absolutePath)
     }
-    const basename = path.basename(filename)
-    fs.writeFileSync(path.join(absolutePath, basename), output)
+    const basename = path.basename(filename, '.md')
+    fs.writeFileSync(path.join(absolutePath, `${basename}.html`), output)
   })
 }
 
